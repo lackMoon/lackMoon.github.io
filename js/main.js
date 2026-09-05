@@ -242,48 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ---------------------------------------------------------
-     9. Contact form
-     --------------------------------------------------------- */
-  const contactForm = document.querySelector(".contact-form");
-
-  contactForm?.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const form = event.currentTarget;
-    const name = form.querySelector('[name="name"]')?.value.trim();
-    const email = form.querySelector('[name="email"]')?.value.trim();
-    const message = form.querySelector('[name="message"]')?.value.trim();
-
-    if (!name || !email || !message) {
-      showFormMessage("Please fill in all fields.", true);
-      return;
-    }
-
-    // This front-end validation is intentionally lightweight.
-    // Connect the form to Formspree, Netlify Forms, or your own
-    // backend when you want actual message delivery.
-    showFormMessage(
-      "Thanks! Your message is ready to send. Connect this form to a backend service to receive submissions."
-    );
-  });
-
-  function showFormMessage(message, isError = false) {
-    let messageElement = contactForm?.querySelector(".form-message");
-
-    if (!contactForm) return;
-
-    if (!messageElement) {
-      messageElement = document.createElement("p");
-      messageElement.className = "form-message";
-      contactForm.appendChild(messageElement);
-    }
-
-    messageElement.textContent = message;
-    messageElement.classList.toggle("is-error", isError);
-    messageElement.classList.add("is-visible");
-  }
-
-  /* ---------------------------------------------------------
      10. Current year
      --------------------------------------------------------- */
   const yearElements = document.querySelectorAll("[data-current-year]");
