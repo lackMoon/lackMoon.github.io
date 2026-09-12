@@ -99,7 +99,7 @@ class R2Guide extends HTMLElement {
     } catch(error) {
       if(version!==this.version) return;
       userBubble.remove(); if(!this.input.value) this.input.value=message;
-      this.status(error.message==='limited'?'R2 has reached its hourly limit. Please try later or take a tour.':'I could not connect. Your message is ready to retry; you can also take a tour.');
+      this.status('I could not connect. Your message is ready to retry; you can also take a tour.');
     } finally {
       clearTimeout(wake); clearTimeout(timeout);
       if(version===this.version) this.setBusy(false);
