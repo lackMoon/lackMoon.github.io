@@ -38,7 +38,7 @@ class R2Guide extends HTMLElement {
     this.welcome();
   }
   disconnectedCallback() { this.version++; this.controller?.abort(); }
-  welcome() { this.bubble('assistant', 'Hi, I’m R2. How can i help you?'); }
+  welcome() { this.bubble('assistant', 'Hi, I’m R2. How can I help you?'); }
   toggle(open) {
     this.panel.hidden=!open; this.launcher.setAttribute('aria-expanded',String(open));
     if(open) this.input.focus(); else this.launcher.focus();
@@ -106,4 +106,4 @@ class R2Guide extends HTMLElement {
     }
   }
 }
-if(!customElements.get('r2')) customElements.define('r2',R2Guide);
+if(!customElements.get('r2-guide')) customElements.define('r2-guide',R2Guide);
