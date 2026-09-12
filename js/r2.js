@@ -89,7 +89,7 @@ class R2Guide extends HTMLElement {
     try {
       const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},
         credentials:'omit',signal:controller.signal,body:JSON.stringify({message,history:this.history.slice(-8)})});
-      if(!response.ok) throw new Error(response.status===429?'limited':'unavailable');
+      if(!response.ok) throw new Error('unavailable');
       const data=await response.json();
       if(typeof data.reply!=='string' || !data.reply.trim() || data.reply.length>4000) throw Error('invalid response');
       if(version!==this.version) return;
@@ -106,4 +106,4 @@ class R2Guide extends HTMLElement {
     }
   }
 }
-if(!customElements.get('r2')) customElements.define('r2',MoonGuide);
+if(!customElements.get('r2')) customElements.define('r2',R2Guide);
